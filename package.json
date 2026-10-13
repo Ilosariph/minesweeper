@@ -1,0 +1,11 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static browser minesweeper with seeded boards and a no-guess mode",
+  "scripts": {
+    "start": "python3 -m http.server -d public 8000",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
