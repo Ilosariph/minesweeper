@@ -25,7 +25,7 @@ let difficulty = 'intermediate';
 let state = null;      // Uint8Array: HIDDEN | OPEN | FLAG per cell
 let status = 'ready';  // 'ready' | 'playing' | 'won' | 'lost'
 let flagMode = false;
-let noGuess = store.get('noGuess') !== '0';
+let noGuess = store.get('noGuess') === '1'; // opt-in; classic lets the first click go anywhere
 let opened = 0;
 let flags = 0;
 let timerStart = 0;
@@ -81,10 +81,8 @@ function setNoGuess(on) {
 }
 function updateModeItems() {
   $('#noGuessItem').classList.toggle('active', noGuess);
-  $('#classicItem').classList.toggle('active', !noGuess);
 }
-$('#noGuessItem').addEventListener('click', () => setNoGuess(true));
-$('#classicItem').addEventListener('click', () => setNoGuess(false));
+$('#noGuessItem').addEventListener('click', () => setNoGuess(!noGuess));
 updateModeItems();
 
 $('#goRetryBtn').addEventListener('click', () => { $('#seedInput').value = board.seed; loadGame(); });

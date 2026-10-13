@@ -1,6 +1,6 @@
 # Minesweeper
 
-Ad-free minesweeper with seeded boards and a **no-guess mode**: every board can be cleared from the marked start cell by logic alone.
+Ad-free minesweeper with seeded boards and an optional **no-guess mode** (off by default; toggle it in the settings menu): every board can be cleared from the marked start cell by logic alone.
 
 Static site (HTML/CSS/vanilla JS, no build step); board generation and the no-guess solver run client-side.
 

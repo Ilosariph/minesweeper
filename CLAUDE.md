@@ -18,6 +18,7 @@ Static site, no backend, no build step:
 
 **Key design decisions:**
 - Same seed + config + mode always produces the same board; mode is part of the hash, so a seed gives different boards in classic and no-guess.
+- Classic is the default mode; no-guess is an opt-in toggle in the settings menu (stored in `localStorage` as `noGuess`).
 - Every board has a `start` cell with a 3×3 mine-free area. No-guess mode only accepts the first reveal there; classic mode lets the first click go anywhere and moves a mine away if needed (`ensureSafe`).
 - No-guess generation retries (up to `MAX_ATTEMPTS`) until `solve` clears the board using single constraints, pairwise constraint differences, the global mine count and brute-force enumeration of small frontier groups. If nothing is found (very dense custom boards), `guaranteed` is false and the UI says so.
 - Wide boards are rendered transposed on portrait screens; cells keep their logical index in `data-i`.
